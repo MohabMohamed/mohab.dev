@@ -21,3 +21,5 @@ Godeps/
 .env
 
 /tmp/
+
+*_templ.go
