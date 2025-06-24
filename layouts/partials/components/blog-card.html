@@ -1,7 +1,12 @@
 <div class="bg-body dark:bg-darkmode-body">
   {{ $image:= .Params.image }}
   {{ if $image }}
-    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded") }}
+   <div class="mb-6 overflow-hidden rounded relative aspect-[16/9]
+              bg-light/10 dark:bg-dark/10">   <!-- faint skeleton while loading -->
+
+    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "absolute inset-0 h-full w-full object-contain object-center rounded") }}
+
+   </div>
   {{ end }}
   <h4 class="mb-3">
     <a href="{{ .RelPermalink }}">
@@ -11,11 +16,6 @@
   {{ $categories:= .Params.categories }}
   {{ if $categories }}
     <ul class="mb-4">
-      <li class="mr-4 inline-block">
-        <a href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/">
-          <i class="fa-regular fa-circle-user mr-2"></i>{{ .Params.author }}
-        </a>
-      </li>
       <li class="mr-4 inline-block">
         <i class="fa-regular fa-folder mr-1"></i>
         {{ range $i,$p:= $categories }}

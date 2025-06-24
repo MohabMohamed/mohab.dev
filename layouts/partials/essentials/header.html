@@ -135,6 +135,21 @@
           {{ site.Params.navigation_button.label }}
         </a>
       {{ end }}
+
+            <ul class="social-icons md:flex  ml-8  space-x-2">
+          {{ range site.Data.social.main }}
+            <li>
+              <a
+                target="_blank"
+                aria-label="{{ .name }}"
+                rel="nofollow noopener"
+                href="{{ .link | safeURL }}">
+                <i class="{{ .icon }}"></i>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+
     </div>
   </nav>
 </header>

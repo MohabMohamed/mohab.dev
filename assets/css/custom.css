@@ -1,2 +1,15 @@
-/* DO NOT WRITE ANY STYLE IN THIS FILE */
-/* If you want to add your own styles, please write it in the `./assets/css/custom.css` file. */
+/* Add your own custom styles here */
+
+.newsletter-card{
+  @apply rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16;
+  background-color: var(--color-darkmode-light, #313347);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--color-darkmode-border, #44475A);
+}
+
+.dark .newsletter-card{
+  background-color: color-mix(in srgb,
+    var(--color-darkmode-light) 85%, transparent);
+}
+
+

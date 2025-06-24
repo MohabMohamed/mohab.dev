@@ -1,23 +1,19 @@
 {
-  "name": "hugoplate",
-  "description": "hugo tailwindcss boilerplate",
-  "version": "2.1.4",
-  "license": "MIT",
   "author": "zeon.studio",
-  "scripts": {
-    "dev": "hugo server",
-    "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
-    "preview": "hugo server --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --watch --forceSyncStatic -e production --minify",
-    "dev:example": "cd exampleSite && hugo server",
-    "build:example": "cd exampleSite && hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
-    "preview:example": "cd exampleSite && hugo server --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --watch --forceSyncStatic -e production --minify",
-    "update-modules": "node ./scripts/clearModules.js && hugo mod clean --all && hugo mod get -u ./... && hugo mod tidy",
-    "remove-darkmode": "node ./scripts/removeDarkmode.js && yarn format",
-    "project-setup": "node ./scripts/projectSetup.js",
-    "theme-setup": "node ./scripts/themeSetup.js",
-    "update-theme": "node ./scripts/themeUpdate.js",
-    "format": "prettier -w ."
+  "comments": {
+    "dependencies": {},
+    "devDependencies": {
+      "@tailwindcss/cli": "project",
+      "@tailwindcss/forms": "project",
+      "@tailwindcss/typography": "project",
+      "prettier": "project",
+      "prettier-plugin-go-template": "project",
+      "prettier-plugin-tailwindcss": "project",
+      "tailwindcss": "project"
+    }
   },
+  "dependencies": {},
+  "description": "hugo tailwindcss boilerplate",
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.6",
     "@tailwindcss/forms": "^0.5.10",
@@ -26,5 +22,22 @@
     "prettier-plugin-go-template": "0.0.15",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.6"
-  }
+  },
+  "license": "MIT",
+  "name": "hugoplate",
+  "scripts": {
+    "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
+    "build:example": "cd exampleSite && hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
+    "dev": "hugo server",
+    "dev:example": "cd exampleSite && hugo server",
+    "format": "prettier -w .",
+    "preview": "hugo server --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --watch --forceSyncStatic -e production --minify",
+    "preview:example": "cd exampleSite && hugo server --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --watch --forceSyncStatic -e production --minify",
+    "project-setup": "node ./scripts/projectSetup.js",
+    "remove-darkmode": "node ./scripts/removeDarkmode.js && yarn format",
+    "theme-setup": "node ./scripts/themeSetup.js",
+    "update-modules": "node ./scripts/clearModules.js && hugo mod clean --all && hugo mod get -u ./... && hugo mod tidy",
+    "update-theme": "node ./scripts/themeUpdate.js"
+  },
+  "version": "2.1.4"
 }
