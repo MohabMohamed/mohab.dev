@@ -156,3 +156,16 @@ mailchimp_form_name   = "$MAILCHIMP_FORM_NAME"
 button_label         = "Join the Geek-List 🚀"
 firstname_required    = true
 lastname_required     = true
+
+
+[giscus]
+enable       = true           # master on/off switch
+repo         = "MohabMohamed/mohab.dev"
+repo_id      = "R_kgDOPBCPCw"
+category     = "Blog Comments"
+category_id  = "DIC_kwDOPBCPC84CsDNq"
+lang         = "en"           # optional
+mapping      = "pathname"     # or "title", "url", etc.
+reactions    = "1"            # show emoji reactions
+emit_metadata = "0"           # hide “commented on” badge
+loading      = "lazy"         # defer until scrolled into view

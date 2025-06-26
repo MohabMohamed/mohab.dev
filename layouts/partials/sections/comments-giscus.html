@@ -1,0 +1,57 @@
+{{- $g := site.Params.giscus -}}
+
+
+<div id="giscus_thread" class="mt-14"></div>
+
+<script>
+  (function () {
+    /* -------- helper -------- */
+    const currentTheme = () =>
+      document.documentElement.classList.contains('dark')
+        ? 'catppuccin_frappe'
+        : 'catppuccin_latte';
+
+    /* -------- 1. insert giscus only after theme is applied -------- */
+    // Your theme‑switcher fires a custom 'class-change' event
+    // as soon as it adds/removes the .dark class.
+    const mountGiscus = () => {
+      // avoid mounting twice
+      if (document.querySelector('#giscus_thread script')) return;
+
+      const s = document.createElement('script');
+      s.src = 'https://giscus.app/client.js';
+      s.async = true;
+      s.setAttribute('data-repo', '{{ $g.repo }}');
+      s.setAttribute('data-repo-id', '{{ $g.repo_id }}');
+      s.setAttribute('data-category', '{{ $g.category }}');
+      s.setAttribute('data-category-id', '{{ $g.category_id }}');
+      s.setAttribute('data-lang', '{{ default "en" $g.lang }}');
+      s.setAttribute('data-mapping', '{{ default "pathname" $g.mapping }}');
+      s.setAttribute('data-reactions-enabled', '{{ default "1" $g.reactions }}');
+      s.setAttribute('data-emit-metadata', '{{ default "0" $g.emit_metadata }}');
+      s.setAttribute('data-input-position', 'top');
+      s.setAttribute('data-strict', '0');
+      s.setAttribute('data-loading', '{{ default "lazy" $g.loading }}');
+      s.setAttribute('crossorigin', 'anonymous');
+      s.setAttribute('data-theme', currentTheme());
+      document.getElementById('giscus_thread').appendChild(s);
+    };
+
+    /* When page finishes deciding on the initial theme */
+    document.addEventListener('DOMContentLoaded', mountGiscus);
+    document.addEventListener('class-change', mountGiscus);
+
+    /* -------- 2. keep widget in sync on later toggles -------- */
+    const updateGiscus = () => {
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe) {
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: currentTheme() } } },
+          'https://giscus.app'
+        );
+      }
+    };
+    document.addEventListener('class-change', updateGiscus);
+    window.addEventListener('storage', updateGiscus);
+  })();
+</script>
