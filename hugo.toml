@@ -166,3 +166,7 @@ lazy = true
 link = "plugins/youtube-lite.js"
 lazy = true
 
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^MAILCHIMP_FORM_ACTION$', '^MAILCHIMP_FORM_NAME$']
+

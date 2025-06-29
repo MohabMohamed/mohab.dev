@@ -151,8 +151,6 @@ map_marker = "images/marker.png"
 [subscription]
 enable = true
 # mailchimp subsciption
-mailchimp_form_action = "$MAILCHIMP_FORM_ACTION"
-mailchimp_form_name   = "$MAILCHIMP_FORM_NAME"
 button_label         = "Join the Geek-List 🚀"
 firstname_required    = true
 lastname_required     = true

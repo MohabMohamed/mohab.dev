@@ -23,7 +23,7 @@
 
         <!-- ▶ RIGHT – form -->
         <form
-          action="{{ .mailchimp_form_action | safeURL }}"
+          action='{{ getenv "MAILCHIMP_FORM_ACTION" | safeURL }}'
           method="post"
           id="mc-embedded-subscribe-form"
           class="grid gap-4"
