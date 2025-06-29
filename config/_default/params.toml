@@ -151,6 +151,8 @@ map_marker = "images/marker.png"
 [subscription]
 enable = true
 # mailchimp subsciption
+mailchimp_form_action = "https://dev.us18.list-manage.com/subscribe/post?u=ebd4a8b36a921d18a3fed3592&amp;id=664f512a45&amp;f_id=0089b7e6f0"
+mailchimp_form_name   = "b_ebd4a8b36a921d18a3fed3592_664f512a45"
 button_label         = "Join the Geek-List 🚀"
 firstname_required    = true
 lastname_required     = true

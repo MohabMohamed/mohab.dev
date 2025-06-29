@@ -1,7 +1,5 @@
 {{ with site.Params.subscription }}
   {{ if .enable }}
-  {{- $action := getenv "MAILCHIMP_FORM_ACTION" -}}
-  {{- if not $action }}{{ $action = site.Params.subscription.mailchimp_form_action }}{{ end -}}
     <div
       class="relative isolate overflow-hidden rounded-2xl bg-white/90 dark:bg-slate-900/90
                  shadow-xl px-8 py-10 sm:px-12 lg:px-16">
@@ -25,7 +23,7 @@
 
         <!-- ▶ RIGHT – form -->
         <form
-          action='{{ $action | safeURL }}'
+          action="{{ .mailchimp_form_action | safeURL }}"
           method="post"
           id="mc-embedded-subscribe-form"
           class="grid gap-4"
